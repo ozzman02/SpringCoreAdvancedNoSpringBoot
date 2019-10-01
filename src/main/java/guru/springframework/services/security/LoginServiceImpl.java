@@ -21,7 +21,8 @@ public class LoginServiceImpl implements LoginService {
         this.userService = userService;
     }
 
-    @Scheduled(fixedRate = 60000)
+    @SuppressWarnings("unchecked")
+	@Scheduled(fixedRate = 60000)
     @Override
     public void resetFailedLogins() {
         System.out.println("Checking for locked accounts");

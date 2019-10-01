@@ -51,7 +51,8 @@ public class UserServiceMapImpl extends AbstractMapService implements UserServic
         super.delete(id);
     }
 
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public User findByUserName(String userName) {
 
         Optional returnUser =  domainMap.values().stream().filter(new Predicate<DomainObject>() {

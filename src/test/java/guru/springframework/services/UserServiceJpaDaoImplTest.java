@@ -5,8 +5,8 @@ import guru.springframework.domain.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * Created by jt on 12/14/15.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(JpaIntegrationConfig.class)
+@ContextConfiguration( classes = JpaIntegrationConfig.class)
 @ActiveProfiles("jpadao")
 public class UserServiceJpaDaoImplTest {
 
@@ -89,7 +89,8 @@ public class UserServiceJpaDaoImplTest {
         assert savedUser.getCart().getId() != null;
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void testAddCartToUserWithCartDetails() throws Exception {
         User user = new User();
 
@@ -117,7 +118,8 @@ public class UserServiceJpaDaoImplTest {
         assert savedUser.getCart().getCartDetails().size() == 2;
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void testAddAndRemoveCartToUserWithCartDetails() throws Exception {
         User user = new User();
 
